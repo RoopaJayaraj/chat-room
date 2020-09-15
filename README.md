@@ -1,3 +1,2 @@
-# Project 2
+# chat-room
 
-Web Programming with Python and JavaScript
