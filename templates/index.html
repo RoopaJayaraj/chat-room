@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Flack Chat
+{% endblock %}
+
+{% block content %}
+<div class="container main-section ">
+    <h2>Create a new channel </h2>
+    <form action="/create" method="post">
+        <div class="form-group">
+            <input type="text" class="form-control" name="channel" id="channel" autofocus  autocomplete="off" >
+        </div>
+        <button class="btn btn-primary" type="submit">Create</button>
+    </form>
+</div>
+<br><br><hr>
+    <div class="container main-section ">
+
+        <h3>Available channels</h3>
+        <ul>
+            {% for channel in channels %}
+            <li class="channel-list-section">
+                <a href="/channels/{{ channel }}">{{ channel }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+
+        if (localStorage.getItem('last_channel')) {
+            // Redirect to last channel
+            let channel = localStorage.getItem('last_channel');    
+            window.location.replace('/channels/' + channel);   
+        }
+
+    </script>
+{% endblock %}

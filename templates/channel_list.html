@@ -1,0 +1,17 @@
+  {% extends "layout.html" %}
+
+  {% block title %}
+    Channels
+  {% endblock %}
+  {% block content %}
+  <div class="container main-section ">
+    <h2>Available channels</h2>
+    <ul>
+        {% for channel in channels %}
+        <li class="channel-list-section">
+            <a href="/channels/{{ channel }}">{{ channel }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+  {% endblock %}
